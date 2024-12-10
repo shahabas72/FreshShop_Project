@@ -23,10 +23,6 @@ FreshShop is an e-commerce web application built with Django, allowing users to 
 
 ---
 
-## Getting Started 🚀
-
-Follow these steps to set up the project on your local machine.
-
 ### Prerequisites
 
 Ensure you have the following installed on your system:
