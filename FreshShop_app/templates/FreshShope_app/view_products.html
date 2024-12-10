@@ -1,0 +1,41 @@
+{% extends 'FreshShope_app/base.html' %}
+
+{% block title %}Products - FreshShop{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Our Products</h1>
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        {% for product in page_obj %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-truncate" style="max-height: 50px; overflow: hidden;">
+                            {{ product.description }}
+                        </p>
+                        <p class="text-success fw-bold">$ {{ product.price }}</p>
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="d-flex justify-content-center mt-4">
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a class="page-link" href="?page=1">&laquo; First</a>
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+            <span class="page-link active">{{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            {% if page_obj.has_next %}
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

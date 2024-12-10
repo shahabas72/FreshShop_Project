@@ -1,0 +1,147 @@
+/* style.css */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Resize images inside cart cards */
+.card-img-top {
+    height: 150px; /* Adjust height for smaller cards */
+    object-fit: cover; /* Ensures proper cropping of the image */
+}
+
+/* Ensure consistent card heights */
+.card {
+    border-radius: 8px;
+    height: 100%; /* Ensures cards fill available space uniformly */
+}
+
+/* Add space between rows */
+.row > .col {
+    margin-bottom: 20px;
+}
+
+/* Truncate long product names or descriptions */
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #343a40;
+}
+
+h5 {
+    color: #343a40;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Custom Cart Table Styles */
+.custom-cart-table {
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adds spacing between rows */
+}
+
+.custom-cart-table thead th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.custom-cart-table tbody tr {
+    background-color: #f8f9fa;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-cart-table tbody tr:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.custom-cart-table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+}
+
+/* Buttons */
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+}
+
+/* Neutral Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.page-link {
+    padding: 8px 16px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000; /* Dark text color */
+    border: 1px solid #ddd; /* Light border for neutral styling */
+    border-radius: 5px;
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.page-link:hover {
+    background-color: #e9ecef; /* Slightly darker background on hover */
+    color: #000;
+}
+
+.page-link.active {
+    background-color: #f8f9fa; /* Same as default, to keep it neutral */
+    color: #000;
+    border: 1px solid #ddd; /* Light border on active */
+}
+
+.page-link:focus {
+    outline: none; /* Removes the blue outline on focus */
+}

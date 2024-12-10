@@ -1,0 +1,49 @@
+{% extends 'FreshShope_app/base.html' %}
+{% load static %}
+
+{% block title %}Checkout - FreshShop{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            <h1 class="text-center mb-4">Checkout</h1>
+            {% if cart_items %}
+                <!-- Cart Items List -->
+                <div class="row">
+                    {% for item in cart_items %}
+                        <div class="col-md-12 mb-4">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title">{{ item.product.name }}</h5>
+                                        <p class="card-text">Quantity: {{ item.quantity }}</p>
+                                        <p class="card-text">Price: ${{ item.product.price }} each</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-end">Total: ${{ item.total_price }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Total and Buttons -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <h4><strong>Total Price: ${{ total }}</strong></h4>
+                    <div>
+                        <a href="{% url 'home' %}" class="btn btn-secondary btn-lg me-3">Return to Home</a>
+                        <a href="#" class="btn btn-success btn-lg">Place Order</a>
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-center mt-4">Your cart is empty. Please add some products.</p>
+                <div class="text-center mt-4">
+                    <a href="{% url 'view_products' %}" class="btn btn-primary btn-lg">Shop Now</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

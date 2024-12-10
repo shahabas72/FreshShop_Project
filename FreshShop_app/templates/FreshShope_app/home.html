@@ -1,0 +1,47 @@
+{% extends 'FreshShope_app/base.html' %}
+
+{% block title %}Home - FreshShop{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Welcome Section -->
+    <div class="text-center">
+        <h1 class="mb-4">Welcome to FreshShop</h1>
+        <a href="{% url 'view_products' %}" class="btn btn-primary btn-lg">View Products</a>
+    </div>
+
+    <!-- Offers and Details Section -->
+    <div class="mt-5">
+        <h2 class="text-center mb-4">Special Offers</h2>
+        <div class="row">
+            <!-- Offer 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Buy One Get One Free</h5>
+                        <p class="card-text">Purchase selected products and get one absolutely free! Hurry, offer valid while stocks last.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Offer 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Flat 20% Off</h5>
+                        <p class="card-text">Enjoy flat 20% off on your first order! Use code <strong>WELCOME20</strong> at checkout.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Offer 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Free Shipping</h5>
+                        <p class="card-text">Get free shipping on all orders over $50. Shop more and save more!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

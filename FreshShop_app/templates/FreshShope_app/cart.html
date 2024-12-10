@@ -1,0 +1,48 @@
+{% extends 'FreshShope_app/base.html' %}
+
+{% block title %}Cart - FreshShop{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Your Cart</h1>
+{% if cart_items %}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ item.product.price }}</td>
+                <td>${{ item.total_price }}</td> <!-- Use the total_price passed from the view -->
+                <td>
+                    <!-- Add buttons for actions -->
+                    <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-sm btn-danger">Remove</a>
+                    <a href="{% url 'increase_quantity' item.id %}" class="btn btn-sm btn-success">+ Add</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+        <p class="h5"><strong>Cart Total: ${{ total }}</strong></p> <!-- Display total cart price -->
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+        <a href="{% url 'checkout' %}" class="btn btn-primary float-end">Proceed to Checkout</a>
+    </div>
+</div>
+{% else %}
+<p class="text-center">Your cart is empty.</p>
+<div class="text-center mt-4">
+    <a href="{% url 'view_products' %}" class="btn btn-primary">Shop Now</a>
+</div>
+{% endif %}
+{% endblock %}
