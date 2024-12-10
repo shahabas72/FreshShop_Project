@@ -22,10 +22,3 @@ FreshShop is an e-commerce web application built with Django, allowing users to 
 - **Deployment**: Compatible with platforms like Heroku, AWS, or DigitalOcean.
 
 ---
-
-### Prerequisites
-
-Ensure you have the following installed on your system:
-- Python (>=3.8)
-- Git
-- Virtualenv (optional but recommended)
